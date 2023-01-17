@@ -13,12 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Personne
 {
 
-    
-    
     #[ORM\OneToOne(targetEntity: "App\Entity\Adresse", cascade: ["persist"])]
     #[ORM\JoinColumn(nullable: true)]
     private ?Adresse $adresse = null;
-
 
     #[ORM\ManyToMany(targetEntity: "App\Entity\Livre", cascade: ["persist"])]
     #[ORM\JoinColumn(nullable: true)]
@@ -44,7 +41,7 @@ class Personne
     #[ORM\Column(nullable: true)]
     private ?int $adresse_id = null;
 
-    #[ORM\OneToMany(mappedBy: 'personne', targetEntity: AchatProduits::class)]
+    #[ORM\OneToMany(mappedBy: 'personne', targetEntity: AchatProduits::class, cascade: ["persist"])]
     private Collection $achatProduits;
 
     public function __construct()

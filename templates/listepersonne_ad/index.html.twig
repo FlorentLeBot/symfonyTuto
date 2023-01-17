@@ -66,6 +66,27 @@
 						</li>
 					</ul>
 				</td>
+
+				<td>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							{% if pers.achatproduits is not empty %}
+								{%for achat in pers.achatproduits %}
+									<li>Nom:
+										{{ achat.nom }}&nbsp;</li>
+									<ul>
+										<li>Prix:
+											{{ achat.prix}}&nbsp;</li>
+										<li>Nombre:
+											{{ achat.nombre }}&nbsp;</li>
+									</ul>
+								{% endfor %}
+							{% else %}
+								pas d'achats
+							{% endif %}
+						</li>
+					</ul>
+				</td>
 			</tr>
 		{% endfor %}
 	</table>

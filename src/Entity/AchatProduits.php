@@ -22,7 +22,7 @@ class AchatProduits
     #[ORM\Column(nullable: true)]
     private ?int $nombre = null;
 
-    #[ORM\ManyToOne(inversedBy: 'achatProduits')]
+    #[ORM\ManyToOne(inversedBy: 'achatProduits', cascade: ["persist"])]
     private ?Personne $personne = null;
 
     public function getId(): ?int
